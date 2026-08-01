@@ -22,7 +22,7 @@
         .hero h1 span { color: #4F46E5; }
         .hero p { font-size: 18px; color: #999; max-width: 600px; margin: 0 auto 32px; }
         .hero .buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-        .hero .btn-primary { background: #4F46E5; color: #FFFFFF; padding: 14px 32px; border-radius: 12px; text-decoration: none; font-size: 16px; font-weight: bold; cursor: pointer; border: none; }
+        .hero .btn-primary { background: #4F46E5; color: #FFFFFF; padding: 14px 32px; border-radius: 12px; text-decoration: none; font-size: 16px; font-weight: bold; cursor: pointer; border: none; display: inline-block; }
         .hero .btn-secondary { background: #1A1A1A; color: #FFFFFF; padding: 14px 32px; border-radius: 12px; text-decoration: none; font-size: 16px; border: 1px solid #333; }
 
         section { padding: 80px 24px; }
@@ -81,14 +81,14 @@
             <a href="#trust">Trust</a>
             <a href="#download">Download</a>
         </div>
-        <a href="#" class="cta" onclick="handleDownload(event)">Get Started</a>
+        <a href="https://github.com/Sesse001/linguacore-web/releases/download/v1.0.0/application-9f6bd8d9-eae5-4ac7-9e9e-e3c9ba15e2d0.apk" class="cta download-link">Get Started</a>
     </nav>
 
     <section class="hero">
         <h1>Preserve Language.<br><span>Share Knowledge.</span></h1>
         <p>Help document South Africa's languages. One contribution at a time. Join a community of contributors preserving language for future generations.</p>
         <div class="buttons">
-            <a href="#" class="btn-primary" onclick="handleDownload(event)">Download for Android</a>
+            <a href="https://github.com/Sesse001/linguacore-web/releases/download/v1.0.0/application-9f6bd8d9-eae5-4ac7-9e9e-e3c9ba15e2d0.apk" class="btn-primary download-link">Download for Android</a>
             <a href="#mission" class="btn-secondary">Learn More</a>
         </div>
     </section>
@@ -182,7 +182,7 @@
             <div class="download">
                 <h2>Ready to Contribute?</h2>
                 <p>Download LinguaCore for Android and start preserving South Africa's languages today.</p>
-                <a href="#" class="btn-primary" onclick="handleDownload(event)">📱 Download for Android</a>
+                <a href="https://github.com/Sesse001/linguacore-web/releases/download/v1.0.0/application-9f6bd8d9-eae5-4ac7-9e9e-e3c9ba15e2d0.apk" class="btn-primary download-link">📱 Download for Android</a>
                 <p style="margin-top: 16px; font-size: 13px; color: #666;">iOS users: Install <strong>Expo Go</strong> from the App Store and scan the QR code.</p>
             </div>
         </div>
@@ -211,16 +211,19 @@
             return /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent);
         }
 
-        function handleDownload(e) {
-            e.preventDefault();
-            if (isMobile()) {
-                window.location.href = BUILD_URL;
-            } else {
-                document.getElementById('qrImage').src = QR_API;
-                document.getElementById('qrUrl').textContent = BUILD_URL;
-                document.getElementById('qrModal').classList.add('active');
-            }
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            var links = document.querySelectorAll('.download-link');
+            links.forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    if (!isMobile()) {
+                        e.preventDefault();
+                        document.getElementById('qrImage').src = QR_API;
+                        document.getElementById('qrUrl').textContent = BUILD_URL;
+                        document.getElementById('qrModal').classList.add('active');
+                    }
+                });
+            });
+        });
 
         function closeModal() {
             document.getElementById('qrModal').classList.remove('active');
