@@ -181,7 +181,7 @@
         <div class="container">
             <div class="download">
                 <h2>Ready to Contribute?</h2>
-                <p id="download-instruction">Download LinguaCore for Android and start preserving South Africa's languages today.</p>
+                <p>Download LinguaCore for Android and start preserving South Africa's languages today.</p>
                 <a href="#" class="btn-primary" onclick="handleDownload(event)">📱 Download for Android</a>
                 <p style="margin-top: 16px; font-size: 13px; color: #666;">iOS users: Install <strong>Expo Go</strong> from the App Store and scan the QR code.</p>
             </div>
@@ -204,8 +204,8 @@
     </footer>
 
     <script>
-        const APK_URL = "https://expo.dev/artifacts/eas/4irh2GmGILuWPGNNBNv7U3Dlu5JLEr7IrXnKNEU9B-k.apk";
-        const QR_API = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(APK_URL);
+        const BUILD_URL = "https://expo.dev/accounts/sesse_54/projects/LinguaCore/builds/99bd24c3-7968-43fd-9030-ccc5ede70141";
+        const QR_API = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(BUILD_URL);
 
         function isMobile() {
             return /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent);
@@ -214,12 +214,10 @@
         function handleDownload(e) {
             e.preventDefault();
             if (isMobile()) {
-                // On phone: download directly
-                window.location.href = APK_URL;
+                window.location.href = BUILD_URL;
             } else {
-                // On desktop: show QR code
                 document.getElementById('qrImage').src = QR_API;
-                document.getElementById('qrUrl').textContent = APK_URL;
+                document.getElementById('qrUrl').textContent = BUILD_URL;
                 document.getElementById('qrModal').classList.add('active');
             }
         }
@@ -228,7 +226,6 @@
             document.getElementById('qrModal').classList.remove('active');
         }
 
-        // Close modal when clicking outside
         document.getElementById('qrModal').addEventListener('click', function(e) {
             if (e.target === this) closeModal();
         });
