@@ -50,12 +50,16 @@
         .confidence-card .badge.high { background: rgba(34,197,94,0.15); color: #22C55E; }
         .confidence-card p { font-size: 14px; color: #999; }
 
+        .ecosystem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .ecosystem-card { background: #1A1A1A; border-radius: 14px; padding: 28px; border: 1px solid #222; }
+        .ecosystem-card .ecosystem-icon { font-size: 36px; margin-bottom: 12px; }
+        .ecosystem-card h3 { font-size: 20px; margin-bottom: 4px; }
+
         .download { background: #1A1A2E; border-radius: 20px; padding: 48px; text-align: center; border: 1px solid #2A2A4E; }
         .download h2 { margin-bottom: 12px; }
         .download p { color: #999; margin-bottom: 24px; }
         .download .btn-primary { display: inline-block; }
 
-        /* QR Code Modal */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center; }
         .modal.active { display: flex; }
         .modal-content { background: #1A1A1A; border-radius: 20px; padding: 32px; text-align: center; border: 1px solid #333; max-width: 350px; }
@@ -80,6 +84,7 @@
             <a href="#mission">Mission</a>
             <a href="#how">How It Works</a>
             <a href="#trust">Trust</a>
+            <a href="#ecosystem">Ecosystem</a>
             <a href="#download">Download</a>
         </div>
         <a href="https://github.com/Sesse001/linguacore-web/releases/download/v1.0.0/application-9f6bd8d9-eae5-4ac7-9e9e-e3c9ba15e2d0.apk" class="cta download-link">Get Started</a>
@@ -178,6 +183,39 @@
         </div>
     </section>
 
+    <section id="ecosystem">
+        <div class="container">
+            <h2>Research Ecosystem</h2>
+            <p style="text-align:center;color:#999;margin-bottom:40px;">LinguaCore's mission is inspired by and aligned with South Africa's leading language research institutions.</p>
+            <div class="ecosystem-grid">
+                <div class="ecosystem-card">
+                    <div class="ecosystem-icon">📚</div>
+                    <h3>SADiLaR</h3>
+                    <p style="color:#4F46E5;font-size:13px;margin-bottom:12px;">South African Centre for Digital Language Resources</p>
+                    <p style="font-size:14px;color:#999;line-height:22px;">South Africa's national research infrastructure for digital language resources, hosted by NWU. Develops, preserves, and shares digital language technologies for all official languages.</p>
+                    <a href="https://sadilar.org" target="_blank" style="color:#818CF8;font-size:13px;font-weight:600;text-decoration:none;display:inline-block;margin-top:12px;">Visit SADiLaR →</a>
+                </div>
+                <div class="ecosystem-card">
+                    <div class="ecosystem-icon">🚀</div>
+                    <h3>ESCALATOR</h3>
+                    <p style="color:#4F46E5;font-size:13px;margin-bottom:12px;">SADiLaR's Flagship Capacity Development Programme</p>
+                    <p style="font-size:14px;color:#999;line-height:22px;">Builds an inclusive community of practice in Digital Humanities. Provides training, mentorship, and digital skills development for researchers, students, and educators.</p>
+                    <a href="https://sadilar.org/en/escalator/" target="_blank" style="color:#818CF8;font-size:13px;font-weight:600;text-decoration:none;display:inline-block;margin-top:12px;">Visit ESCALATOR →</a>
+                </div>
+                <div class="ecosystem-card">
+                    <div class="ecosystem-icon">🎓</div>
+                    <h3>North-West University</h3>
+                    <p style="color:#4F46E5;font-size:13px;margin-bottom:12px;">Host Institution for SADiLaR</p>
+                    <p style="font-size:14px;color:#999;line-height:22px;">One of South Africa's leading public universities. Supports research in digital humanities, language technology, and multilingual education.</p>
+                    <a href="https://www.nwu.ac.za" target="_blank" style="color:#818CF8;font-size:13px;font-weight:600;text-decoration:none;display:inline-block;margin-top:12px;">Visit NWU →</a>
+                </div>
+            </div>
+            <p style="text-align:center;font-size:12px;color:#666;margin-top:30px;font-style:italic;">
+                LinguaCore is an independent research and language technology initiative. Our work is aligned with the missions of SADiLaR, ESCALATOR, and NWU. Any formal partnerships will be announced if established.
+            </p>
+        </div>
+    </section>
+
     <section id="download">
         <div class="container">
             <div class="download">
@@ -189,7 +227,6 @@
         </div>
     </section>
 
-    <!-- QR Code Modal for Desktop -->
     <div class="modal" id="qrModal">
         <div class="modal-content">
             <h3>Scan to Download</h3>
